@@ -1,0 +1,18 @@
+create database employees;
+use employees;
+create table employee(empno varchar(20) not null,emp_name varchar(30),dept varchar(20) not null,salary integer(10) not null,doj date not null,branch varchar(20) not null,primary key(empno));
+insert into employee values("E101","Amit","production",45000,"12-Mar-02","Banglore");
+alter table employee modify doj varchar(20) not null;
+insert into employee values("E102","Amit","HR",70000,"03-Jul-02","Banglore");
+insert into employee values("E103","Sunita","management",120000,"11-Jan-01","mysore");
+insert into employee values("E105","Sunita","IT",67000,"01-Aug-01","mysore");
+insert into employee values("E106","Mahesh","civil",145000,"20-Sep-03","mumbai");
+select * from employee;
+select empno,salary from employee;
+select avg(salary) from employee;
+select count(empno) from employee;
+select distinct * from employee;
+select sum(salary),emp_name,count(*) as times from employee group by emp_name having(count(*)>1);
+select * from employee where salary>120000;  
+select emp_name from employee order by emp_name DESC;  
+select *from employee where emp_name="Amit" and salary>50000;  
